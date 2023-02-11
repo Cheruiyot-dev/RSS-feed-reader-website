@@ -1,0 +1,39 @@
+{% extends 'RSS/base.html' %} {% load static %} {% block content %}
+
+<h2>{{feed_title}}</h2>
+
+<div class="container">
+  <div class="row">
+  {% for entry in entries %}
+    <div class="col">
+      <div class="card" style="width: 18rem">
+        <div class="card-body">
+          <h5 class="card-title">{{ entry.title }}</h5>
+          
+          <p class="card-text">
+            {{ entry.description }}
+          </p>
+          <a href="{{ entry.link }}" class="card-link">{{ entry.link }}</a>
+        </div>
+        
+      </div>
+    </div>
+  {% endfor %}
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+{% endblock content %}
