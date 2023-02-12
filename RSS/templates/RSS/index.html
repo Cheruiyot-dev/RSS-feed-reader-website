@@ -1,9 +1,17 @@
 {% extends 'RSS/base.html' %} {% load static %} {% block content %}
 
-<h2>{{feed_title}}</h2>
+<br>
+<form method="post">
+  {% csrf_token %}
+  <input type="text" name="url" placeholder="Enter RSS feed URL">
+  <button type="submit">Submit</button>
+</form>
 
 <div class="container">
   <div class="row">
+{% if entries %}
+    <h1>{{ feed_title }}</h1>
+  
   {% for entry in entries %}
     <div class="col">
       <div class="card" style="width: 18rem">
@@ -19,6 +27,7 @@
       </div>
     </div>
   {% endfor %}
+{% endif %}
   </div>
 </div>
 
